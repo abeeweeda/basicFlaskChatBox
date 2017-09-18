@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>poorman twitter </title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+<div>
+    <img src="/static/onam.jpg" alt="happy onam" style="height:228px; width: 50%">
+</div>
+<div style="width: 50%; height:50%; float: left; border: solid 2px black; position:fixed; overflow-y: scroll">
+    {% for data in textAreaData %}
+            <p><span style="color:black;">{{data[0]}}</span> : {{data[1]}}</p>
+    {% endfor %}
+</div>
+<div style="width: 50%; float: right">
+<form class="form" action = "http://localhost/5050/" method = "POST" align="left">
+    <p>Enter Name: </p>
+	<p><input type = "text" name = "nm" style="border-radius: 2px; box-shadow: 2px 2px 5px blue"/></p>
+	<p>Enter Message:</p>
+    <p><input type = "text" name = "txt" style="border-radius: 2px; box-shadow: 2px 2px 5px blue"/></p>
+    <p><input type = "submit" value = "submit" class="btn btn-info"/></p>
+</form>
+{% if data %}
+    <h1 align="left">{{ data[0] }} says {{ data[1] }} !!</h1>
+{% endif %}
+</div>
